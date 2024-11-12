@@ -12,6 +12,9 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
+import java.io.IOException;
+
+
 public class RiesgoApp extends Application {
     private GestorDeRiesgos gestor = new GestorDeRiesgos();
     private TableView<Riesgo> tablaRiesgos = new TableView<>();
@@ -20,6 +23,7 @@ public class RiesgoApp extends Application {
     public void start(Stage primaryStage) {
 
         primaryStage.setTitle("Evaluación y Seguimiento de Riesgos");
+
 
         // Crear columnas para la tabla
         TableColumn<Riesgo, Integer> colId = new TableColumn<>("ID");
@@ -32,6 +36,7 @@ public class RiesgoApp extends Application {
         colNivelRiesgo.setCellValueFactory(data -> new ReadOnlyObjectWrapper<>(data.getValue().getNivelRiesgo()));
 
         tablaRiesgos.getColumns().addAll(colId, colNombre, colNivelRiesgo);
+        tablaRiesgos.setStyle("-fx-background-color: #ffffff");
 
         // Crear campos de entrada
         TextField txtNombre = new TextField();
@@ -45,13 +50,21 @@ public class RiesgoApp extends Application {
         Spinner<Integer> spnImpacto = new Spinner<>(1, 5, 1);
 
         Button btnAgregar = new Button("Agregar Riesgo");
+        btnAgregar.setStyle( "-fx-background-color: #4A90E2; -fx-text-fill: white;" +
+                "-fx-font-weight: bold;-fx-background-radius: 5;");
+
         btnAgregar.setOnAction(e -> agregarRiesgo(txtNombre, txtDescripcion, spnProbabilidad, spnImpacto));
 
         Button btnEliminar = new Button("Eliminar Riesgo Seleccionado");
+        btnEliminar.setStyle( "-fx-background-color: #4A90E2; -fx-text-fill: white;" +
+                "-fx-font-weight: bold;-fx-background-radius: 5;");
+
+
         btnEliminar.setOnAction(e -> eliminarRiesgoSeleccionado());
 
         // Organizar layout
         GridPane gridPane = new GridPane();
+        gridPane.setStyle("-fx-background-color: #ffffff");
         gridPane.setPadding(new Insets(10));
         gridPane.setHgap(10);
         gridPane.setVgap(10);
@@ -73,7 +86,8 @@ public class RiesgoApp extends Application {
 
         Scene scene = new Scene(vBox, 600, 500);
         primaryStage.setScene(scene);
-        scene.getStylesheets().add(getClass().getResource("estilos.css").toExternalForm());
+
+
         primaryStage.show();
         primaryStage.setScene(scene);
 
@@ -94,6 +108,14 @@ public class RiesgoApp extends Application {
         spnImpacto.getValueFactory().setValue(1);
 
         actualizarTabla();
+
+
+            try {
+                new InformePdf().generarInforme(gestor.getListaRiesgos());
+            } catch (IOException ex) {
+                ex.printStackTrace();
+            }
+
     }
 
     private void eliminarRiesgoSeleccionado() {

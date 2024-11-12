@@ -1,6 +1,9 @@
 module co.edu.uniquindio.herramientagestionderiesgos {
     requires javafx.controls;
     requires javafx.fxml;
+    requires kernel;
+    requires layout;
+    requires io;
 
 
     opens co.edu.uniquindio.herramientagestionderiesgos to javafx.fxml;

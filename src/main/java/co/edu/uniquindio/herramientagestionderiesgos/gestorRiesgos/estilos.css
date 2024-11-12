@@ -10,10 +10,10 @@
 }
 
 .button {
-    -fx-background-color: #4A90E2; /* Fondo de los botones azul claro */
-    -fx-text-fill: white; /* Texto de los botones en blanco */
+    -fx-background-color: #4A90E2;
+    -fx-text-fill: white;
     -fx-font-weight: bold;
-    -fx-background-radius: 5; /* Bordes redondeados */
+    -fx-background-radius: 5;
 }
 
 .button:hover {

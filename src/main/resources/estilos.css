@@ -1,0 +1,51 @@
+.root {
+    -fx-background-color: #f0f8ff; /* Fondo azul claro */
+    -fx-font-family: "Arial"; /* Fuente general */
+    -fx-font-weight: bold; /* Texto en negrita */
+}
+
+.label {
+    -fx-text-fill: #003366; /* Texto en color azul oscuro */
+    -fx-font-size: 14px; /* Tamaño de la fuente */
+}
+
+.button {
+    -fx-background-color: #4A90E2; /* Fondo de los botones azul claro */
+    -fx-text-fill: white; /* Texto de los botones en blanco */
+    -fx-font-weight: bold;
+    -fx-background-radius: 5; /* Bordes redondeados */
+}
+
+.button:hover {
+    -fx-background-color: #357ABD; /* Color al pasar el ratón */
+}
+
+.text-field, .text-area {
+    -fx-background-color: #ffffff; /* Fondo blanco */
+    -fx-text-fill: #003366; /* Texto azul oscuro */
+    -fx-border-color: #4A90E2; /* Borde azul claro */
+    -fx-font-weight: bold;
+}
+
+.spinner .increment-arrow-button, .spinner .decrement-arrow-button {
+    -fx-background-color: #4A90E2; /* Fondo de los botones de spinner */
+}
+
+.table-view {
+    -fx-background-color: #ffffff; /* Fondo de la tabla */
+    -fx-border-color: #4A90E2;
+}
+
+.table-view .column-header-background {
+    -fx-background-color: #4A90E2; /* Encabezados de columna en azul */
+}
+
+.table-view .table-cell {
+    -fx-text-fill: #003366; /* Texto de las celdas en azul oscuro */
+    -fx-font-weight: bold;
+}
+
+.table-view .column-header {
+    -fx-text-fill: white; /* Texto blanco en encabezados */
+    -fx-font-weight: bold;
+}

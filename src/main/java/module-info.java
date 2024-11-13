@@ -4,6 +4,8 @@ module co.edu.uniquindio.herramientagestionderiesgos {
     requires kernel;
     requires layout;
     requires io;
+    requires java.desktop;
+    requires javafx.swing;
 
 
     opens co.edu.uniquindio.herramientagestionderiesgos to javafx.fxml;

@@ -1,6 +1,7 @@
 package co.edu.uniquindio.herramientagestionderiesgos.gestorRiesgos;
 
-public class Riesgo {
+public class Riesgo implements Comparable<Riesgo> {
+
     private int id;
     private String nombre;
     private String descripcion;
@@ -64,5 +65,11 @@ public class Riesgo {
 
     public void setNivelRiesgo(int nivelRiesgo) {
         this.nivelRiesgo = nivelRiesgo;
+    }
+
+    @Override
+    public int compareTo(Riesgo otroRiesgo) {
+
+        return Integer.compare(otroRiesgo.getNivelRiesgo(), this.nivelRiesgo);
     }
 }
